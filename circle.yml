@@ -9,7 +9,8 @@ dependencies:
     
 deployment:
   release:
-    branch: setup-ci
+    tag: /v[0-9]+(\.[0-9]+)*/
+    owner: k2wanko
     commands:
       - gox --output "pkg//{{.Dir}}_{{.OS}}_{{.Arch}}"
       - cp -r pkg/ $CIRCLE_ARTIFACTS/
