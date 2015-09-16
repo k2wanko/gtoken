@@ -11,4 +11,4 @@ deployment:
       - go get github.com/tcnksm/ghr
       - gox --output "pkg//{{.Dir}}_{{.OS}}_{{.Arch}}"
       - cp -r pkg/ $CIRCLE_ARTIFACTS/
-      - ghr -u $USERNAME -r $CIRCLE_PROJECT_REPONAME --replace $CIRCLE_TAG pkg
+      - ghr -u $USERNAME --replace $CIRCLE_TAG pkg
