@@ -4,12 +4,13 @@ machine:
 
 dependencies:
   pre:
-    - go get github.com/mitchellh/gox
-    - go get github.com/tcnksm/ghr
+    - go get -t -d -v github.com/mitchellh/gox
+    - go get -t -d -v github.com/tcnksm/ghr
     
 deployment:
   release:
     branch: setup-ci
     commands:
-      - gox --output "pkg/{{.OS}}/{{.Arch}}/{{.Dir}}"
+      - gox --output "pkg//{{.Dir}}_{{.OS}}_{{.Arch}}"
       - cp -r pkg/ $CIRCLE_ARTIFACTS/
+      - ghr v0.0.1 pkg
