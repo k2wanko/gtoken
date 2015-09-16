@@ -13,4 +13,4 @@ deployment:
     commands:
       - gox --output "pkg//{{.Dir}}_{{.OS}}_{{.Arch}}"
       - cp -r pkg/ $CIRCLE_ARTIFACTS/
-      - ghr v0.0.1 pkg
+      - ghr --replace v0.0.1 -u $USERNAME -r $CIRCLE_PROJECT_REPONAME pkg
