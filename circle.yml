@@ -1,0 +1,14 @@
+machine:
+  timezone:
+    Asia/Tokyo
+
+dependencies:
+  pre:
+    - go get github.com/mitchellh/gox
+    - go get github.com/tcnksm/ghr
+    
+deployment:
+  release:
+    branch: master
+    commands:
+      - gox --output "pkg/{{.OS}}/{{.Arch}}/{{.Dir}}"
