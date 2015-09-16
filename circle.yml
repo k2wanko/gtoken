@@ -9,6 +9,7 @@ dependencies:
     
 deployment:
   release:
-    branch: master
+    branch: setup-ci
     commands:
       - gox --output "pkg/{{.OS}}/{{.Arch}}/{{.Dir}}"
+      - cp -r pkg/ $CIRCLE_ARTIFACTS/
